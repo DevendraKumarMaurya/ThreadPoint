@@ -1,0 +1,226 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                Int           @id @default(autoincrement())
+  username          String        @unique
+  email             String        @unique
+  password_hash     String?       // Nullable for users registered solely via Google
+  avatar_url        String?
+  bio               String?
+  reputation_score  Int           @default(1)
+  
+  // Google OAuth & Provider Tracking Fields
+  is_google_auth    Boolean       @default(false)
+  auth_provider     String        @default("local") // "local" | "google" | "both"
+  google_id         String?       @unique
+  is_email_verified Boolean       @default(false)
+  location          String?
+  github_url        String?
+  website_url       String?
+  
+  created_at        DateTime      @default(now())
+  updated_at        DateTime      @default(now()) @updatedAt
+
+  questions         Question[]
+  answers           Answer[]
+  votes             Vote[]
+  comments          Comment[]
+  user_badges       UserBadge[]
+  followers         UserFollow[]  @relation("UserFollowers")
+  following         UserFollow[]  @relation("UserFollowing")
+
+  @@map("User")
+}
+
+model EmailOtp {
+  id          Int      @id @default(autoincrement())
+  email       String
+  otp_hash    String
+  purpose     String   @default("email_verification") // "email_verification" | "password_reset" | "login"
+  attempts    Int      @default(0)
+  expires_at  DateTime
+  created_at  DateTime @default(now())
+
+  @@index([email, purpose])
+  @@map("EmailOtp")
+}
+
+model Question {
+  id          Int           @id @default(autoincrement())
+  title       String
+  body        String
+  user_id     Int
+  views       Int           @default(0)
+  created_at  DateTime      @default(now())
+  updated_at  DateTime      @default(now()) @updatedAt
+
+  user        User          @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  answers     Answer[]
+  tags        QuestionTag[]
+
+  @@map("Question")
+}
+
+model Answer {
+  id          Int       @id @default(autoincrement())
+  question_id Int
+  user_id     Int
+  body        String
+  is_accepted Boolean   @default(false)
+  created_at  DateTime  @default(now())
+  updated_at  DateTime  @default(now()) @updatedAt
+
+  question    Question  @relation(fields: [question_id], references: [id], onDelete: Cascade)
+  user        User      @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@index([question_id])
+  @@map("Answer")
+}
+
+model Tag {
+  id          Int           @id @default(autoincrement())
+  name        String        @unique
+  description String?
+  created_at  DateTime      @default(now())
+
+  questions   QuestionTag[]
+
+  @@map("Tag")
+}
+
+model QuestionTag {
+  question_id Int
+  tag_id      Int
+  created_at  DateTime  @default(now())
+
+  question    Question  @relation(fields: [question_id], references: [id], onDelete: Cascade)
+  tag         Tag       @relation(fields: [tag_id], references: [id], onDelete: Cascade)
+
+  @@id([question_id, tag_id])
+  @@map("QuestionTag")
+}
+
+model Vote {
+  id          Int       @id @default(autoincrement())
+  user_id     Int
+  target_type String    // 'question' | 'answer'
+  target_id   Int
+  value       Int       // 1 (upvote) | -1 (downvote)
+  created_at  DateTime  @default(now())
+  updated_at  DateTime  @default(now()) @updatedAt
+
+  user        User      @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@unique([user_id, target_type, target_id])
+  @@index([target_type, target_id])
+  @@map("Vote")
+}
+
+model Comment {
+  id                Int       @id @default(autoincrement())
+  user_id           Int
+  target_type       String    // 'question' | 'answer'
+  target_id         Int
+  body              String
+  parent_comment_id Int?
+  created_at        DateTime  @default(now())
+  updated_at        DateTime  @default(now()) @updatedAt
+
+  user              User      @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  parent            Comment?  @relation("CommentReplies", fields: [parent_comment_id], references: [id], onDelete: Cascade)
+  replies           Comment[] @relation("CommentReplies")
+
+  @@index([target_type, target_id])
+  @@map("Comment")
+}
+
+model Badge {
+  id          Int          @id @default(autoincrement())
+  name        String       @unique
+  description String
+  icon        String
+  tier        String       // 'gold' | 'silver' | 'bronze'
+  created_at  DateTime     @default(now())
+
+  user_badges UserBadge[]
+
+  @@map("Badge")
+}
+
+model UserBadge {
+  id         Int      @id @default(autoincrement())
+  user_id    Int
+  badge_id   Int
+  awarded_at DateTime @default(now())
+
+  user       User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  badge      Badge    @relation(fields: [badge_id], references: [id], onDelete: Cascade)
+
+  @@unique([user_id, badge_id])
+  @@map("UserBadge")
+}
+
+model UserFollow {
+  id           Int      @id @default(autoincrement())
+  follower_id  Int
+  following_id Int
+  created_at   DateTime @default(now())
+
+  follower     User     @relation("UserFollowing", fields: [follower_id], references: [id], onDelete: Cascade)
+  following    User     @relation("UserFollowers", fields: [following_id], references: [id], onDelete: Cascade)
+
+  @@unique([follower_id, following_id])
+  @@index([follower_id])
+  @@index([following_id])
+  @@map("UserFollow")
+}
+
+model Notification {
+  id           Int      @id @default(autoincrement())
+  recipient_id Int
+  actor_id     Int
+  type         String   // 'answer' | 'comment' | 'accept' | 'follow' | 'vote'
+  target_type  String?  // 'question' | 'answer' | 'user'
+  target_id    Int?
+  title        String
+  message      String
+  is_read      Boolean  @default(false)
+  created_at   DateTime @default(now())
+
+  @@index([recipient_id, is_read])
+  @@map("Notification")
+}
+
+model UserTagFollow {
+  id         Int      @id @default(autoincrement())
+  user_id    Int
+  tag_id     Int
+  created_at DateTime @default(now())
+
+  @@unique([user_id, tag_id])
+  @@index([user_id])
+  @@map("UserTagFollow")
+}
+
+model Report {
+  id          Int      @id @default(autoincrement())
+  reporter_id Int
+  target_type String   // 'question' | 'answer' | 'comment'
+  target_id   Int
+  reason      String
+  details     String?
+  status      String   @default("pending") // 'pending' | 'resolved' | 'dismissed'
+  created_at  DateTime @default(now())
+
+  @@index([target_type, target_id])
+  @@map("Report")
+}
+
+
