@@ -2,13 +2,13 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { X } from 'lucide-react';
 
-const POPULAR_SUGGESTIONS = ['postgresql', 'triggers', 'indexing', 'full-text-search', 'concurrency', 'react'];
+const POPULAR_SUGGESTIONS = ['technology', 'productivity', 'science', 'career', 'design', 'lifestyle', 'learning'];
 
 export default function TagInputSelector({ tags, tagInput, onTagInputChange, onAddTag, onRemoveTag }) {
   return (
     <div className="bg-white rounded-2xl p-4 sm:p-6 border border-slate-200 shadow-xs">
       <label className="block text-sm font-bold text-slate-900 font-sans mb-1">
-        Tags
+        Tags & Topics
       </label>
       <p className="text-xs text-slate-500 mb-3">
         Add up to 5 tags to describe what your question is about (Press Enter or space).
@@ -43,7 +43,7 @@ export default function TagInputSelector({ tags, tagInput, onTagInputChange, onA
                 onAddTag(tagInput);
               }
             }}
-            placeholder={tags.length === 0 ? 'e.g. postgresql, triggers' : 'add another tag...'}
+            placeholder={tags.length === 0 ? 'e.g. technology, productivity, design' : 'add another tag...'}
             className="flex-1 bg-transparent border-0 outline-none text-xs font-mono text-slate-900 placeholder:text-slate-400 min-w-[120px] p-1"
           />
         )}

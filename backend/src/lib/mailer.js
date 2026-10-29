@@ -70,7 +70,7 @@ export async function sendOtpEmail({ to, otp, purpose = 'email_verification' }) 
           This code expires in <strong>10 minutes</strong>. If you did not make this request, you can safely ignore this email.
         </div>
         <div class="footer">
-          ThreadPoint Engineering Knowledge Exchange &copy; ${new Date().getFullYear()}
+          ThreadPoint Community Knowledge Platform &copy; ${new Date().getFullYear()}
         </div>
       </div>
     </body>

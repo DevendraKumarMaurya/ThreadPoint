@@ -11,7 +11,7 @@ export default function LoginPage() {
   const availableUsers = (demoUsers && demoUsers.length > 0) ? demoUsers : DEMO_USERS;
 
   const [emailOrUsername, setEmailOrUsername] = useState('');
-  const [password, setPassword] = useState('password123');
+  const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -181,17 +181,24 @@ export default function LoginPage() {
           </form>
 
           {/* Discreet Demo Account Dropdown */}
-          <div className="mt-6 pt-5 border-t border-slate-100">
+          <div className="mt-6 pt-5 border-t border-slate-100 text-center">
             <button
               type="button"
               onClick={() => setShowDemoSelector(!showDemoSelector)}
-              className="w-full text-center text-xs text-indigo-600 hover:text-indigo-800 font-medium py-1 transition-colors cursor-pointer"
+              className="text-xs text-indigo-600 hover:text-indigo-800 font-medium py-1 transition-colors cursor-pointer"
             >
               {showDemoSelector ? 'Hide demo accounts ▲' : 'Sign in with a demo account (1-click) ▼'}
             </button>
 
+            <p className="text-[11px] text-slate-500 mt-1">
+              Demo accounts password:{' '}
+              <code className="bg-slate-100 text-slate-800 px-1.5 py-0.5 rounded font-mono font-semibold border border-slate-200">
+                password123
+              </code>
+            </p>
+
             {showDemoSelector && (
-              <div className="mt-3 space-y-1.5 max-h-48 overflow-y-auto pt-1">
+              <div className="mt-3 space-y-1.5 max-h-48 overflow-y-auto pt-1 text-left">
                 {availableUsers.map((u) => (
                   <button
                     key={u.id}

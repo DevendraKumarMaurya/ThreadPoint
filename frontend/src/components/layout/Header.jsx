@@ -1,5 +1,5 @@
 import React from 'react';
-import { Search, PlusCircle, Star, Award, Sparkles, Menu, X, Users } from 'lucide-react';
+import { Search, PlusCircle, Star, Award, Sparkles, Menu, X } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useAuth } from '../../context/AuthContext';
 import NotificationDropdown from './NotificationDropdown';
@@ -47,7 +47,7 @@ export default function Header({ onOpenSearch, onNavigate, onOpenAuth, isMobileM
             <Logo
               size={36}
               withText
-              subtitle="Developer Knowledge Platform"
+              subtitle="Community Knowledge Platform"
               subtitleClassName="hidden sm:block"
             />
           </motion.div>
@@ -61,7 +61,7 @@ export default function Header({ onOpenSearch, onNavigate, onOpenAuth, isMobileM
           >
             <Search className="w-4 h-4 text-slate-400" />
             <span className="flex-1 text-sm text-slate-400 font-sans">
-              Search questions, code snippets, tags, users...
+              Search questions, answers, topics, users...
             </span>
             <kbd className="shrink-0 font-mono text-[11px] font-semibold px-2 py-0.5 rounded-md bg-white text-slate-500 shadow-xs border border-slate-200">
               {typeof navigator !== 'undefined' && /(Mac|iPhone|iPod|iPad)/i.test(navigator?.userAgent || navigator?.platform || '') ? '⌘K' : 'Ctrl K'}
@@ -147,15 +147,6 @@ export default function Header({ onOpenSearch, onNavigate, onOpenAuth, isMobileM
             />
           ) : (
             <div className="flex items-center gap-2">
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                onClick={onOpenAuth}
-                className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold text-indigo-600 bg-indigo-50 hover:bg-indigo-100 border border-indigo-200/60 transition-colors cursor-pointer"
-              >
-                <Users className="w-3.5 h-3.5" />
-                <span>Demo Accounts</span>
-              </motion.button>
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}

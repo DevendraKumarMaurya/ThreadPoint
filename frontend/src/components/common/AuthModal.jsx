@@ -3,7 +3,6 @@ import { X, Lock, Mail, User } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useAuth, DEMO_USERS } from '../../context/AuthContext';
 import GoogleAuthControl from '../auth/GoogleAuthControl';
-import DemoAccountSwitcher from '../auth/DemoAccountSwitcher';
 import Logo from './Logo';
 
 export default function AuthModal({ isOpen, onClose }) {
@@ -12,7 +11,7 @@ export default function AuthModal({ isOpen, onClose }) {
   const [tab, setTab] = useState('login'); // 'login' | 'register' | 'demo'
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('password123');
+  const [password, setPassword] = useState('');
   const [bio, setBio] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -135,14 +134,6 @@ export default function AuthModal({ isOpen, onClose }) {
               >
                 Register
               </button>
-              <button
-                onClick={() => setTab('demo')}
-                className={`flex-1 py-1.5 text-xs font-semibold rounded-lg transition-all cursor-pointer ${
-                  tab === 'demo' ? 'bg-white text-indigo-600 shadow-xs' : 'text-slate-500 hover:text-slate-800'
-                }`}
-              >
-                Demo Accounts
-              </button>
             </div>
 
             {/* Body */}
@@ -154,24 +145,6 @@ export default function AuthModal({ isOpen, onClose }) {
               )}
 
               <AnimatePresence mode="wait">
-                {tab === 'demo' && (
-                  <motion.div
-                    key="tab-demo"
-                    initial={{ opacity: 0, y: 4 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -4 }}
-                    transition={{ duration: 0.12 }}
-                  >
-                    <DemoAccountSwitcher
-                      availableUsers={availableUsers}
-                      currentUserId={currentUser?.id}
-                      onSelectUser={(user) => {
-                        switchUser(user);
-                        onClose();
-                      }}
-                    />
-                  </motion.div>
-                )}
 
                 {tab === 'login' && (
                   <motion.div

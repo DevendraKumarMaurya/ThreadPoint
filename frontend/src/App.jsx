@@ -7,6 +7,7 @@ import Sidebar from './components/layout/Sidebar';
 import CommandPalette from './components/common/CommandPalette';
 import AuthModal from './components/common/AuthModal';
 import OtpModal from './components/common/OtpModal';
+import AccountSwitchOverlay from './components/common/AccountSwitchOverlay';
 
 import FeedPage from './pages/FeedPage';
 import QuestionDetailPage from './pages/QuestionDetailPage';
@@ -309,6 +310,8 @@ function AppContent() {
         purpose={otpModalState.purpose}
         onSuccess={otpModalState.onSuccess}
       />
+
+      <AccountSwitchOverlay />
     </div>
   );
 }

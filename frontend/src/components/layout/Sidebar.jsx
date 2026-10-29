@@ -265,12 +265,12 @@ function SidebarInner({ onNavigate, onItemClick, layoutPrefix = 'desktop' }) {
                 <button
                   type="button"
                   onClick={() => {
-                    openAuthModal();
+                    onNavigate('profile', currentUser?.username || currentUser?.id);
                     onItemClick?.();
                   }}
                   className="text-[10px] text-indigo-600 hover:text-indigo-800 font-medium block truncate text-left cursor-pointer hover:underline"
                 >
-                  Switch Demo Account →
+                  View Profile & Activity →
                 </button>
               </div>
             </div>
@@ -319,9 +319,9 @@ export default function Sidebar({ onNavigate, isMobileOpen = false, onCloseMobil
                   <Logo
                     size={32}
                     withText
-                    subtitle="Knowledge Base"
+                    subtitle="Community Platform"
                     textClassName="text-base"
-                    subtitleClassName="font-mono"
+                    subtitleClassName="font-sans"
                   />
                   <motion.button
                     whileHover={{ scale: 1.08 }}

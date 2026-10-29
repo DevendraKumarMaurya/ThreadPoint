@@ -80,11 +80,11 @@ export default function FeedPage({ currentSort = 'interesting', activeTag = '', 
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 px-1">
         <div className="flex items-center gap-2 flex-wrap text-sm text-slate-600">
           <span className="font-sans font-bold text-base text-slate-900">
-            {selectedTag ? `Tagged Inquiries (#${selectedTag})` : 'Top Engineering Inquiries'}
+            {selectedTag ? `Tagged Questions (#${selectedTag})` : 'Community Discussions'}
           </span>
           <span className="text-slate-300">/</span>
           <span className="text-slate-500 text-xs font-mono">
-            Displaying {questions.length} curated technical threads
+            Displaying {questions.length} community discussions
           </span>
           {selectedTag && (
             <motion.button
@@ -116,7 +116,7 @@ export default function FeedPage({ currentSort = 'interesting', activeTag = '', 
                 className="bg-white rounded-2xl p-12 text-center border border-slate-200"
               >
                 <div className="w-8 h-8 border-3 border-indigo-600 border-t-transparent rounded-full animate-spin mx-auto mb-3"></div>
-                <p className="text-sm font-medium text-slate-600">Loading technical questions...</p>
+                <p className="text-sm font-medium text-slate-600">Loading community questions...</p>
               </motion.div>
             ) : error ? (
               <motion.div
@@ -145,7 +145,7 @@ export default function FeedPage({ currentSort = 'interesting', activeTag = '', 
                 className="bg-white rounded-2xl p-12 text-center border border-slate-200"
               >
                 <p className="text-base font-bold text-slate-700">No questions found</p>
-                <p className="text-xs text-slate-400 mt-1">Be the first developer to ask a question with these criteria!</p>
+                <p className="text-xs text-slate-400 mt-1">Be the first to ask a question with these criteria!</p>
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.97 }}

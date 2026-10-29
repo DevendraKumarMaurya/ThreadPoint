@@ -52,9 +52,9 @@ export default function ReportModal({
                   {[
                     { id: 'spam', label: 'Spam, promotional, or advertising content' },
                     { id: 'abusive', label: 'Harassment, hate speech, or offensive language' },
-                    { id: 'offtopic', label: 'Off-topic, non-technical, or misleading' },
+                    { id: 'offtopic', label: 'Off-topic, irrelevant, or misleading' },
                     { id: 'duplicate', label: 'Duplicate of an existing question' },
-                    { id: 'lowquality', label: 'Very low quality or incomplete code' },
+                    { id: 'lowquality', label: 'Very low quality, incomprehensible, or unhelpful' },
                   ].map(r => (
                     <label
                       key={r.id}

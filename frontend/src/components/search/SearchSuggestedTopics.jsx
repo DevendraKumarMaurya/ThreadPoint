@@ -2,13 +2,13 @@ import React from 'react';
 import { Tag } from 'lucide-react';
 import { motion } from 'motion/react';
 
-const SUGGESTED_TAGS = ['postgresql', 'triggers', 'indexing', 'full-text-search', 'concurrency'];
+const SUGGESTED_TAGS = ['technology', 'science', 'productivity', 'design', 'career', 'philosophy'];
 
 const TOP_CONTRIBUTORS = [
-  { username: 'carol_dba', title: 'Senior Backend Architect', rep: 61 },
-  { username: 'alice_dev', title: 'Distributed Systems & PostgreSQL', rep: 43 },
-  { username: 'david_fullstack', title: 'TypeScript & Frontend Performance', rep: 33 },
-  { username: 'bob_sql', title: 'Full-stack PERN Engineer', rep: 28 },
+  { username: 'carol_dba', title: 'Community Curator & Writer', rep: 61 },
+  { username: 'alice_dev', title: 'Science & Education Specialist', rep: 43 },
+  { username: 'david_fullstack', title: 'Design & Usability Thinker', rep: 33 },
+  { username: 'bob_sql', title: 'Community Strategist & Reader', rep: 28 },
 ];
 
 export default function SearchSuggestedTopics({ onSelectTag, onSelectUser }) {

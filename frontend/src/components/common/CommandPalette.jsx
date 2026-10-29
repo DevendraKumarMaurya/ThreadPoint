@@ -152,7 +152,7 @@ export default function CommandPalette({ isOpen, onClose, onNavigate }) {
                     addToHistory(query);
                   }
                 }}
-                placeholder="Search questions, solutions, tags, or @contributors..."
+                placeholder="Search questions, answers, topics, or @members..."
                 className="flex-1 bg-transparent border-0 outline-none text-slate-900 placeholder:text-slate-400 text-base font-sans"
               />
               {query && (

@@ -102,7 +102,7 @@ export default function TagsPage({ onNavigate: propOnNavigate }) {
       {loading ? (
         <div className="bg-white rounded-2xl p-16 text-center border border-slate-200">
           <div className="w-8 h-8 border-3 border-indigo-600 border-t-transparent rounded-full animate-spin mx-auto mb-3"></div>
-          <p className="text-sm font-medium text-slate-600">Loading indexed technical tags...</p>
+          <p className="text-sm font-medium text-slate-600">Loading topics and tags...</p>
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">

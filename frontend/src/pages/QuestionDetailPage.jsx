@@ -466,8 +466,8 @@ export default function QuestionDetailPage({ questionId: propQuestionId, onNavig
         ) : (
           <div className="bg-white rounded-2xl p-10 text-center border border-slate-200 text-slate-400 text-sm">
             <MessageSquare className="w-8 h-8 text-slate-300 mx-auto mb-2" />
-            <p className="font-semibold text-slate-700">No solutions provided yet</p>
-            <p className="text-xs text-slate-400 mt-1">Be the first to provide an architectural explanation or code snippet!</p>
+            <p className="font-semibold text-slate-700">No answers provided yet</p>
+            <p className="text-xs text-slate-400 mt-1">Be the first to share your perspective, answer, or advice!</p>
           </div>
         )}
       </div>

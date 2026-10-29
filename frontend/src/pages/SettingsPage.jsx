@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { User, ShieldCheck, Sliders, Database, ArrowLeft, LogIn, Users } from 'lucide-react';
+import { User, ShieldCheck, Sliders, Database, ArrowLeft, LogIn } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import ProfileSettingsSection from '../components/settings/ProfileSettingsSection';
 import SecuritySettingsSection from '../components/settings/SecuritySettingsSection';
@@ -38,7 +38,7 @@ export default function SettingsPage({ onNavigate }) {
             Authentication Required
           </h2>
           <p className="text-xs text-slate-500 mt-2 leading-relaxed max-w-sm mx-auto">
-            You are currently browsing as a guest. Please sign in or switch to a demo account to manage profile identity, security credentials, and preferences.
+            You are currently browsing as a guest. Please sign in or create an account to manage profile identity, security credentials, and preferences.
           </p>
 
           <div className="flex items-center justify-center gap-3 mt-6">
@@ -54,11 +54,10 @@ export default function SettingsPage({ onNavigate }) {
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              onClick={openAuthModal}
+              onClick={() => onNavigate('signup')}
               className="px-4 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs rounded-xl transition-colors flex items-center gap-2 cursor-pointer"
             >
-              <Users className="w-4 h-4 text-indigo-600" />
-              <span>Demo Accounts</span>
+              <span>Create Account</span>
             </motion.button>
           </div>
         </div>
@@ -89,7 +88,7 @@ export default function SettingsPage({ onNavigate }) {
           Account Settings
         </h1>
         <p className="text-xs sm:text-sm text-slate-500 mt-1">
-          Manage your developer persona, email verification, credentials, and platform preferences.
+          Manage your public profile, email verification, credentials, and platform preferences.
         </p>
       </div>
 

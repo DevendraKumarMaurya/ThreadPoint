@@ -75,8 +75,8 @@ export default function QuestionMainCard({
             type="text"
             value={editTags}
             onChange={(e) => setEditTags(e.target.value)}
-            placeholder="e.g. postgresql, react, node"
-            className="w-full px-4 py-2 border border-slate-200 rounded-xl text-xs font-mono focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
+            placeholder="e.g. technology, productivity, design"
+            className="w-full px-4 py-2 border border-slate-200 rounded-xl text-xs font-sans focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
           />
         </div>
 
@@ -87,7 +87,7 @@ export default function QuestionMainCard({
               rows={10}
               value={editBody}
               onChange={(e) => setEditBody(e.target.value)}
-              className="w-full p-4 border border-slate-200 rounded-xl text-sm font-mono focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 bg-slate-50/50"
+              className="w-full p-4 border border-slate-200 rounded-xl text-sm font-sans focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 bg-slate-50/50"
             />
           ) : (
             <div className="p-4 border border-slate-200 rounded-xl bg-slate-50 min-h-[220px]">

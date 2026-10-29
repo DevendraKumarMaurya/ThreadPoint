@@ -67,7 +67,7 @@ export default function SignUpPage() {
       setLoading(true);
       setError('');
       const mockToken = `dev-mock-google-token:${encodeURIComponent(JSON.stringify({
-        email: 'sarah.engineer@example.com',
+        email: 'sarah.connor@example.com',
         name: 'Sarah Connor',
         picture: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80',
       }))}`;
@@ -92,7 +92,7 @@ export default function SignUpPage() {
             Create an Account
           </h1>
           <p className="text-xs text-slate-500 mt-1">
-            Join the developer knowledge community.
+            Join the community knowledge platform.
           </p>
         </div>
 
@@ -131,7 +131,7 @@ export default function SignUpPage() {
                 required
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                placeholder="e.g. dev_jane"
+                placeholder="e.g. jane_doe"
                 className="w-full px-3.5 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all font-sans"
               />
             </div>
@@ -181,7 +181,7 @@ export default function SignUpPage() {
                 type="text"
                 value={bio}
                 onChange={(e) => setBio(e.target.value)}
-                placeholder="e.g. Full-stack developer passionate about PostgreSQL"
+                placeholder="e.g. Writer, designer, researcher & curious learner"
                 className="w-full px-3.5 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all font-sans"
               />
             </div>

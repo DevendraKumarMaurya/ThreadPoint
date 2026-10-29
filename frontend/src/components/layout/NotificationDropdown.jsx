@@ -205,7 +205,7 @@ export default function NotificationDropdown({ currentUser, onNavigate }) {
                     <Bell className="w-8 h-8 text-slate-300 mx-auto mb-2" />
                     <p className="text-xs font-semibold text-slate-600">No notifications yet</p>
                     <p className="text-[11px] text-slate-400 mt-0.5">
-                      You will receive alerts here when other developers answer, comment, accept, or follow you.
+                      You will receive alerts here when other community members answer, comment, accept, or follow you.
                     </p>
                   </div>
                 ) : (

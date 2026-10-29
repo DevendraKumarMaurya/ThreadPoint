@@ -6,6 +6,7 @@ import { createQuestion, searchQuestions, fetchTags } from '../api/client';
 import { useAuth } from '../context/AuthContext';
 import SimilarQuestionsBox from '../components/question/SimilarQuestionsBox';
 import TagInputSelector from '../components/question/TagInputSelector';
+import FormattedContent from '../components/question/FormattedContent';
 
 export default function AskPage({ onNavigate: propOnNavigate }) {
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ export default function AskPage({ onNavigate: propOnNavigate }) {
   const { currentUser } = useAuth();
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
-  const [tags, setTags] = useState(['postgresql']);
+  const [tags, setTags] = useState([]);
   const [tagInput, setTagInput] = useState('');
   const [availableTags, setAvailableTags] = useState([]);
   const [tab, setTab] = useState('write'); // 'write' | 'preview'
@@ -69,7 +70,7 @@ export default function AskPage({ onNavigate: propOnNavigate }) {
       return;
     }
     if (tags.length === 0) {
-      setError('Please add at least one tag (e.g. #postgresql).');
+      setError('Please add at least one tag (e.g. #productivity, #technology).');
       return;
     }
 
@@ -110,7 +111,7 @@ export default function AskPage({ onNavigate: propOnNavigate }) {
           Ask a Public Question
         </h1>
         <p className="text-sm text-slate-500 mt-1">
-          Post a reproducible technical inquiry to the engineering community.
+          Ask a question, start a discussion, or seek advice from the community.
         </p>
       </div>
 
@@ -134,7 +135,7 @@ export default function AskPage({ onNavigate: propOnNavigate }) {
             </span>
           </div>
           <p className="text-xs text-slate-500 mb-2">
-            Be specific and imagine you are asking a question to another software engineer.
+            Be clear, concise, and specific so other community members can understand and help.
           </p>
           <input
             type="text"
@@ -142,7 +143,7 @@ export default function AskPage({ onNavigate: propOnNavigate }) {
             maxLength={150}
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            placeholder="e.g. How to enforce single accepted answer in PostgreSQL with conditional unique indexes?"
+            placeholder="e.g. What are the most effective strategies for staying focused while working remotely?"
             className="w-full px-4 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
           />
 
@@ -181,7 +182,7 @@ export default function AskPage({ onNavigate: propOnNavigate }) {
             </div>
           </div>
           <p className="text-xs text-slate-500 mb-3">
-            Introduce the problem, share what you tried, and format any code/queries using triple backticks.
+            Provide relevant context, background details, and examples to help others give great answers.
           </p>
 
           <AnimatePresence mode="wait">
@@ -198,8 +199,8 @@ export default function AskPage({ onNavigate: propOnNavigate }) {
                   rows={10}
                   value={body}
                   onChange={(e) => setBody(e.target.value)}
-                  placeholder="Explain the background, paste schema, or SQL queries using ```sql ... ```"
-                  className="w-full p-3 sm:p-4 border border-slate-200 rounded-xl text-sm font-mono focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 bg-slate-50/50"
+                  placeholder="Provide relevant details, context, and examples to help community members answer your question accurately..."
+                  className="w-full p-3 sm:p-4 border border-slate-200 rounded-xl text-sm font-sans focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 bg-slate-50/50"
                 />
               </motion.div>
             ) : (
@@ -209,9 +210,13 @@ export default function AskPage({ onNavigate: propOnNavigate }) {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.12 }}
-                className="p-3 sm:p-4 border border-slate-200 rounded-xl bg-slate-50 min-h-[200px] text-sm whitespace-pre-line overflow-x-auto"
+                className="p-3 sm:p-4 border border-slate-200 rounded-xl bg-slate-50 min-h-[200px] text-sm overflow-x-auto"
               >
-                {body.trim() ? body : <span className="text-slate-400 italic">No markdown preview yet...</span>}
+                {body.trim() ? (
+                  <FormattedContent content={body} contentId="ask-preview" />
+                ) : (
+                  <span className="text-slate-400 italic">No markdown preview yet...</span>
+                )}
               </motion.div>
             )}
           </AnimatePresence>

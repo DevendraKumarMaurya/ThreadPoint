@@ -36,7 +36,7 @@ export default function LeaderboardPage({ onNavigate: propOnNavigate }) {
           Top 10 Leaderboard
         </h1>
         <p className="text-sm text-slate-500 mt-1 max-w-2xl">
-          Top 10 engineers ranked by reputation earned through answers, accepted solutions, and community contributions.
+          Top 10 community contributors ranked by reputation earned through answers, accepted solutions, and helpful contributions.
         </p>
       </div>
 

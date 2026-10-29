@@ -80,7 +80,7 @@ export default function BookmarksPage({ onNavigate: propOnNavigate }) {
             Your Personal Knowledge Library
           </h2>
           <p className="text-xs sm:text-sm text-slate-500 max-w-md mt-2 leading-relaxed">
-            Sign in to bookmark complex PostgreSQL queries, verified solutions, and architecture discussions for quick reference.
+            Sign in to bookmark insightful questions, verified solutions, and community discussions for quick reference.
           </p>
           <div className="flex flex-col sm:flex-row items-center gap-3 mt-6 w-full sm:w-auto">
             <motion.button
@@ -175,7 +175,7 @@ export default function BookmarksPage({ onNavigate: propOnNavigate }) {
           </div>
           <h3 className="text-lg font-bold text-slate-800">No saved bookmarks yet</h3>
           <p className="text-xs text-slate-500 max-w-sm mt-1.5 leading-relaxed">
-            When you find a helpful database benchmark, trigger pattern, or verified solution, click the bookmark icon to save it here.
+            When you discover insightful answers, thoughtful discussions, or helpful guides, click the bookmark icon on any question to save it here.
           </p>
           <motion.button
             whileHover={{ scale: 1.02 }}
@@ -183,7 +183,7 @@ export default function BookmarksPage({ onNavigate: propOnNavigate }) {
             onClick={() => onNavigate('feed')}
             className="mt-6 inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-xs transition-colors shadow-xs"
           >
-            Explore Technical Inquiries <ArrowRight className="w-3.5 h-3.5" />
+            Explore Community Discussions <ArrowRight className="w-3.5 h-3.5" />
           </motion.button>
         </motion.div>
       ) : filteredBookmarks.length === 0 ? (

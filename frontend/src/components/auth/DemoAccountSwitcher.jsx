@@ -4,9 +4,14 @@ import { motion } from 'motion/react';
 export default function DemoAccountSwitcher({ availableUsers, currentUserId, onSelectUser }) {
   return (
     <div className="flex flex-col gap-3">
-      <p className="text-xs text-slate-500 mb-1">
-        Select a contributor profile to explore community interactions:
-      </p>
+      <div className="flex items-center justify-between gap-2">
+        <p className="text-xs text-slate-500">
+          Select a contributor profile to switch:
+        </p>
+        <span className="text-[11px] font-mono text-slate-500 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
+          Password: <strong className="text-slate-800">password123</strong>
+        </span>
+      </div>
       {availableUsers.map((user) => {
         const isCurrent = currentUserId === user.id;
         return (

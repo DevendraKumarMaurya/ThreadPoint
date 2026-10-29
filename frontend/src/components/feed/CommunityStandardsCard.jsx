@@ -11,16 +11,16 @@ export default function CommunityStandardsCard() {
         </span>
       </div>
       <h4 className="font-bold text-sm text-white font-sans">
-        Quality Solutions & Verified Answers
+        Helpful Answers & Verified Solutions
       </h4>
       <p className="text-xs text-slate-300 mt-2 leading-relaxed">
-        ThreadPoint rewards clear, reproducible inquiries and peer-reviewed technical solutions. Only the question author can verify an accepted answer, boosting contributor reputation.
+        ThreadPoint rewards thoughtful questions and high-quality, helpful answers. Only the question author can verify an accepted answer, boosting contributor reputation.
       </p>
-      <div className="mt-4 pt-3 border-t border-slate-700/80 flex items-center justify-between text-[11px] font-mono text-emerald-400">
+      <div className="mt-4 pt-3 border-t border-slate-700/80 flex items-center justify-between text-[11px] font-sans text-emerald-400">
         <span className="flex items-center gap-1">
-          <CheckCircle2 className="w-3.5 h-3.5" /> Peer Reviewed
+          <CheckCircle2 className="w-3.5 h-3.5" /> Community Verified
         </span>
-        <span>Authoritative Solutions</span>
+        <span>Trusted Knowledge</span>
       </div>
     </div>
   );

@@ -18,7 +18,7 @@ export default function AnswerComposer({
         Your Answer
       </h3>
       <p className="text-xs text-slate-500 mb-4">
-        Provide a clear, reproducible solution with code or markdown snippets to help the community.
+        Provide a clear, helpful answer with explanations or references to support the community.
       </p>
 
       {/* Editor Controls */}
@@ -43,8 +43,8 @@ export default function AnswerComposer({
             Preview
           </button>
         </div>
-        <span className="text-[11px] text-slate-400 font-mono">
-          Markdown & ```code blocks supported
+        <span className="text-[11px] text-slate-400 font-sans">
+          Markdown formatting supported
         </span>
       </div>
 
@@ -61,8 +61,8 @@ export default function AnswerComposer({
               rows={8}
               value={answerBody}
               onChange={(e) => setAnswerBody(e.target.value)}
-              placeholder="Explain the solution clearly and include code snippets..."
-              className="w-full p-4 border border-slate-200 rounded-xl text-sm font-mono focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 bg-slate-50/50"
+              placeholder="Explain your thoughts, solution, or experience in detail..."
+              className="w-full p-4 border border-slate-200 rounded-xl text-sm font-sans focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 bg-slate-50/50"
             />
           </motion.div>
         ) : (

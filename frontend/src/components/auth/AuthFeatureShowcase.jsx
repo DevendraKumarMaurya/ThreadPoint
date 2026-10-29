@@ -3,9 +3,9 @@ import { CheckCircle2, ShieldCheck, Zap, Award } from 'lucide-react';
 import Logo from '../common/Logo';
 
 export default function AuthFeatureShowcase({
-  badgeSubtitle = 'Engineering Knowledge',
-  title = 'Sign in to peer-reviewed technical insights.',
-  subtitle = 'Engage with verified PostgreSQL benchmarks, full-text GIN search indexes, and community accepted solutions.',
+  badgeSubtitle = 'Community Knowledge',
+  title = 'Join a thriving community of curious minds.',
+  subtitle = 'Ask questions, share trusted answers, explore diverse topics, and build your community reputation.',
   items,
 }) {
   const defaultItems = [
@@ -13,22 +13,22 @@ export default function AuthFeatureShowcase({
       icon: CheckCircle2,
       iconColor: 'text-emerald-400',
       badgeBg: 'bg-indigo-500/20 border-indigo-400/30',
-      title: 'Verified Solutions Only',
-      desc: 'Author-verified solutions with atomic concurrency guarantees.',
+      title: 'Verified Solutions',
+      desc: 'Authors mark verified answers so everyone finds accurate solutions quickly.',
     },
     {
       icon: ShieldCheck,
       iconColor: 'text-indigo-400',
       badgeBg: 'bg-indigo-500/20 border-indigo-400/30',
-      title: 'Transparent Reputation',
-      desc: 'Earn score through community upvotes, accepted answers, and peer review.',
+      title: 'Reputation System',
+      desc: 'Earn score and recognition through community upvotes and helpful answers.',
     },
     {
       icon: Zap,
       iconColor: 'text-amber-400',
       badgeBg: 'bg-indigo-500/20 border-indigo-400/30',
-      title: 'Instant Demo Switching',
-      desc: 'Test roles and multi-user interactions seamlessly with 1-click persona switching.',
+      title: 'Multi-Account Center',
+      desc: 'Seamlessly manage multiple profiles and switch accounts in one click.',
     },
   ];
 
@@ -49,7 +49,7 @@ export default function AuthFeatureShowcase({
             dark
             subtitle={badgeSubtitle}
             textClassName="text-xl"
-            subtitleClassName="font-mono text-indigo-300"
+            subtitleClassName="font-sans text-indigo-300"
           />
         </div>
 
@@ -83,9 +83,9 @@ export default function AuthFeatureShowcase({
         </div>
       </div>
 
-      <div className="pt-6 sm:pt-8 border-t border-slate-700/60 mt-6 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-        <span>PostgreSQL 16 Engine</span>
-        <span>JWT & OAuth 2.0</span>
+      <div className="pt-6 sm:pt-8 border-t border-slate-700/60 mt-6 text-[11px] font-sans text-slate-400 flex items-center justify-between">
+        <span>Trusted Knowledge Community</span>
+        <span>Secure & Privacy First</span>
       </div>
     </div>
   );

@@ -58,10 +58,10 @@ export default function PreferencesSettingsSection() {
       <div className="border-b border-slate-100 pb-4">
         <h2 className="text-lg font-bold text-slate-900 font-sans flex items-center gap-2">
           <Sliders className="w-5 h-5 text-indigo-600" />
-          Developer Experience & App Preferences
+          User Experience & App Preferences
         </h2>
         <p className="text-xs text-slate-500 mt-1">
-          Customize your default feed views, code block typography, and community notification alerts.
+          Customize your default feed views, reading typography, and community notification alerts.
         </p>
       </div>
 
@@ -82,7 +82,7 @@ export default function PreferencesSettingsSection() {
           Default Feed Sort Criteria
         </label>
         <p className="text-xs text-slate-500 -mt-1">
-          Choose which technical inquiries are shown first when accessing the home feed.
+          Choose which questions and discussions are shown first when accessing the home feed.
         </p>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
           {[
@@ -141,7 +141,7 @@ export default function PreferencesSettingsSection() {
                 New Answers on My Questions
               </span>
               <span className="block text-[11px] text-slate-400">
-                Receive notification alerts whenever another developer proposes an answer.
+                Receive notification alerts whenever someone posts an answer to your question.
               </span>
             </div>
             <input
@@ -175,7 +175,7 @@ export default function PreferencesSettingsSection() {
                 New Follower Alerts
               </span>
               <span className="block text-[11px] text-slate-400">
-                Notify me whenever another contributor begins following my engineering activity.
+                Notify me whenever another community member begins following my activity.
               </span>
             </div>
             <input

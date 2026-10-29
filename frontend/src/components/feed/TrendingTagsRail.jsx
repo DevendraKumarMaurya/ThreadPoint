@@ -3,11 +3,11 @@ import { Tag } from 'lucide-react';
 import { motion } from 'motion/react';
 
 const TRENDING_TAGS = [
-  { name: 'postgresql', count: 1840, desc: 'Object-relational database & SQL' },
-  { name: 'indexing', count: 940, desc: 'B-Tree, GIN, and search speed' },
-  { name: 'triggers', count: 620, desc: 'Automated data validation procedures' },
-  { name: 'react', count: 1420, desc: 'Modern user interface components' },
-  { name: 'performance', count: 480, desc: 'Latency optimization and scaling' },
+  { name: 'technology', count: 2450, desc: 'Innovations, tools, and digital insights' },
+  { name: 'productivity', count: 1840, desc: 'Habits, workflows, and time management' },
+  { name: 'science', count: 1290, desc: 'Discoveries, physics, nature, and research' },
+  { name: 'career', count: 940, desc: 'Professional growth, interviews, and guidance' },
+  { name: 'design', count: 820, desc: 'UI/UX, visual thinking, and aesthetics' },
 ];
 
 export default function TrendingTagsRail({ onSelectTag, onNavigateAllTags }) {
@@ -16,7 +16,7 @@ export default function TrendingTagsRail({ onSelectTag, onNavigateAllTags }) {
       <div className="flex items-center justify-between mb-4">
         <h3 className="font-bold text-sm text-slate-900 font-sans flex items-center gap-2">
           <Tag className="w-4 h-4 text-indigo-600" />
-          Trending Knowledge Tags
+          Trending Topics & Tags
         </h3>
         <button
           onClick={onNavigateAllTags}

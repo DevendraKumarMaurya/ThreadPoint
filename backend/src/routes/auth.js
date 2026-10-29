@@ -49,7 +49,7 @@ router.post('/google', async (req, res) => {
         payload = {
           sub: parsed.sub || `google_dev_${Date.now()}`,
           email: parsed.email,
-          name: parsed.name || 'Google Developer',
+          name: parsed.name || 'Google User',
           picture: parsed.picture || `https://api.dicebear.com/7.x/bottts/svg?seed=${parsed.email}`,
           email_verified: true,
         };
@@ -123,7 +123,7 @@ router.post('/google', async (req, res) => {
         if (!user.is_email_verified && email_verified) {
           updates.is_email_verified = true;
         }
-        if (picture && (!user.avatar_url || user.avatar_url.includes('dicebear'))) {
+        if (picture) {
           updates.avatar_url = picture;
         }
 
@@ -167,7 +167,7 @@ router.post('/google', async (req, res) => {
         user.google_id = google_id;
         user.auth_provider = user.password_hash ? 'both' : 'google';
         user.is_email_verified = true;
-        if (picture && (!user.avatar_url || user.avatar_url.includes('dicebear'))) {
+        if (picture) {
           user.avatar_url = picture;
         }
       }
@@ -221,7 +221,7 @@ router.post('/register', async (req, res) => {
           username,
           email,
           password_hash: hashedPassword,
-          bio: bio || 'Developer & community contributor.',
+          bio: bio || 'Community member & contributor.',
           avatar_url: defaultAvatar,
           reputation_score: 1,
           is_google_auth: false,
@@ -242,7 +242,7 @@ router.post('/register', async (req, res) => {
         email,
         password_hash: hashedPassword,
         avatar_url: defaultAvatar,
-        bio: bio || 'Developer & community contributor.',
+        bio: bio || 'Community member & contributor.',
         reputation_score: 1,
         is_google_auth: false,
         auth_provider: 'local',

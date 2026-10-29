@@ -24,11 +24,11 @@ export default function FeaturesPage({ onNavigate }) {
           <ul className="space-y-2 text-slate-700 pl-1">
             <li className="flex items-start gap-2">
               <span className="text-slate-400 font-bold select-none">•</span>
-              <span>Write technical questions formatted with full Markdown, code snippets, and syntax highlighting.</span>
+              <span>Write questions formatted with full Markdown, rich text, and formatting options.</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-slate-400 font-bold select-none">•</span>
-              <span>Tag inquiries with relevant technologies (e.g. <code className="text-xs bg-slate-100 px-1.5 py-0.5 rounded font-mono">#postgresql</code>, <code className="text-xs bg-slate-100 px-1.5 py-0.5 rounded font-mono">#react</code>) so the right engineers can find them.</span>
+              <span>Tag inquiries with relevant topics (e.g. <code className="text-xs bg-slate-100 px-1.5 py-0.5 rounded font-mono">#productivity</code>, <code className="text-xs bg-slate-100 px-1.5 py-0.5 rounded font-mono">#design</code>) so the right community members can find them.</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-slate-400 font-bold select-none">•</span>
@@ -105,7 +105,7 @@ export default function FeaturesPage({ onNavigate }) {
           <ul className="space-y-2 text-slate-700 pl-1">
             <li className="flex items-start gap-2">
               <span className="text-slate-400 font-bold select-none">•</span>
-              <span>Your reputation score reflects the community's trust in your technical contributions.</span>
+              <span>Your reputation score reflects the community's trust in your answers and helpful contributions.</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-slate-400 font-bold select-none">•</span>
@@ -125,7 +125,7 @@ export default function FeaturesPage({ onNavigate }) {
             </li>
             <li className="flex items-start gap-2">
               <span className="text-slate-400 font-bold select-none">•</span>
-              <span>The top 10 contributors are featured on the public Engineering Leaderboard.</span>
+              <span>The top 10 contributors are featured on the public Community Leaderboard.</span>
             </li>
           </ul>
         </section>
@@ -198,7 +198,7 @@ export default function FeaturesPage({ onNavigate }) {
             </li>
             <li className="flex items-start gap-2">
               <span className="text-slate-400 font-bold select-none">•</span>
-              <span>Follow specific tags to quickly filter your feed for the technologies you work with.</span>
+              <span>Follow specific tags to quickly filter your feed for topics that interest you.</span>
             </li>
           </ul>
         </section>
