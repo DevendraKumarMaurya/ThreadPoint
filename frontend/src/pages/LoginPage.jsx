@@ -3,6 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { Eye, EyeOff, ArrowRight } from 'lucide-react';
 import { useAuth, DEMO_USERS } from '../context/AuthContext';
 import GoogleAuthControl from '../components/auth/GoogleAuthControl';
+import Logo from '../components/common/Logo';
 
 export default function LoginPage() {
   const navigate = useNavigate();
@@ -89,13 +90,8 @@ export default function LoginPage() {
       <div className="w-full max-w-md">
         {/* Brand Header */}
         <div className="text-center mb-8">
-          <Link to="/feed" className="inline-flex items-center gap-2.5 group">
-            <div className="w-9 h-9 rounded-xl bg-indigo-600 flex items-center justify-center shadow-sm">
-              <span className="text-white font-extrabold text-lg font-mono">T</span>
-            </div>
-            <span className="font-bold text-xl text-slate-900 group-hover:text-indigo-600 transition-colors">
-              ThreadPoint
-            </span>
+          <Link to="/feed" className="inline-block">
+            <Logo size={36} withText />
           </Link>
           <h1 className="text-2xl font-bold text-slate-900 mt-4 font-sans tracking-tight">
             Sign In

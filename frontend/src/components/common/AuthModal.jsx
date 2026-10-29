@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { useAuth, DEMO_USERS } from '../../context/AuthContext';
 import GoogleAuthControl from '../auth/GoogleAuthControl';
 import DemoAccountSwitcher from '../auth/DemoAccountSwitcher';
+import Logo from './Logo';
 
 export default function AuthModal({ isOpen, onClose }) {
   const { currentUser, login, loginWithGoogle, register, switchUser, demoUsers, openOtpModal } = useAuth();
@@ -102,10 +103,8 @@ export default function AuthModal({ isOpen, onClose }) {
           >
             {/* Header */}
             <div className="flex items-center justify-between px-4 sm:px-6 py-3.5 sm:py-4 border-b border-slate-100">
-              <div className="flex items-center gap-2">
-                <div className="w-7 h-7 rounded-lg bg-indigo-600 flex items-center justify-center text-white font-bold font-mono text-sm">
-                  T
-                </div>
+              <div className="flex items-center gap-2.5">
+                <Logo size={28} />
                 <h3 className="font-bold text-slate-900 text-sm sm:text-base font-sans">
                   Authentication & Personas
                 </h3>

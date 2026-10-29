@@ -1,5 +1,6 @@
 import React from 'react';
 import { CheckCircle2, ShieldCheck, Zap, Award } from 'lucide-react';
+import Logo from '../common/Logo';
 
 export default function AuthFeatureShowcase({
   badgeSubtitle = 'Engineering Knowledge',
@@ -42,13 +43,14 @@ export default function AuthFeatureShowcase({
       <div>
         {/* Brand Logo */}
         <div className="flex items-center gap-3 mb-6 sm:mb-8">
-          <div className="w-10 h-10 rounded-xl bg-indigo-500 flex items-center justify-center text-white font-mono font-extrabold text-xl shadow-lg shadow-indigo-500/30">
-            T
-          </div>
-          <div>
-            <span className="font-bold text-xl text-white tracking-tight">ThreadPoint</span>
-            <span className="text-[11px] block text-indigo-300 font-mono -mt-0.5">{badgeSubtitle}</span>
-          </div>
+          <Logo
+            size={40}
+            withText
+            dark
+            subtitle={badgeSubtitle}
+            textClassName="text-xl"
+            subtitleClassName="font-mono text-indigo-300"
+          />
         </div>
 
         <h2 className="text-xl sm:text-2xl font-bold font-sans tracking-tight text-white leading-snug">

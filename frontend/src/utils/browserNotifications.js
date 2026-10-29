@@ -68,7 +68,7 @@ export function sendBrowserNotification({ title, body, icon, tag, onClick }) {
   try {
     const notif = new Notification(title || 'ThreadPoint Notification', {
       body: body || 'You have a new notification.',
-      icon: icon || 'https://api.dicebear.com/7.x/bottts/svg?seed=threadpoint',
+      icon: icon || '/threadpoint-logo.svg',
       tag: tag || undefined,
       badge: icon || undefined,
     });

@@ -15,6 +15,7 @@ import {
   Sparkles
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
+import Logo from '../common/Logo';
 
 function SidebarInner({ onNavigate, onItemClick, layoutPrefix = 'desktop' }) {
   const { currentUser, bookmarkedIds, openAuthModal } = useAuth();
@@ -315,19 +316,13 @@ export default function Sidebar({ onNavigate, isMobileOpen = false, onCloseMobil
               <div>
                 {/* Mobile Drawer Top Brand Bar */}
                 <div className="flex items-center justify-between px-2 pb-4 mb-3 border-b border-slate-200">
-                  <div className="flex items-center gap-2.5">
-                    <motion.div
-                      whileHover={{ scale: 1.05, rotate: 3 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="w-8 h-8 rounded-xl bg-indigo-600 flex items-center justify-center text-white font-mono font-extrabold text-base shadow-xs"
-                    >
-                      T
-                    </motion.div>
-                    <div>
-                      <span className="font-bold text-base text-slate-900">ThreadPoint</span>
-                      <span className="block text-[10px] text-slate-400 font-mono -mt-0.5">Knowledge Base</span>
-                    </div>
-                  </div>
+                  <Logo
+                    size={32}
+                    withText
+                    subtitle="Knowledge Base"
+                    textClassName="text-base"
+                    subtitleClassName="font-mono"
+                  />
                   <motion.button
                     whileHover={{ scale: 1.08 }}
                     whileTap={{ scale: 0.92 }}

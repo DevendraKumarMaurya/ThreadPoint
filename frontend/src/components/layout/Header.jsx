@@ -4,6 +4,7 @@ import { motion } from 'motion/react';
 import { useAuth } from '../../context/AuthContext';
 import NotificationDropdown from './NotificationDropdown';
 import UserMenuDropdown from './UserMenuDropdown';
+import Logo from '../common/Logo';
 
 export default function Header({ onOpenSearch, onNavigate, onOpenAuth, isMobileMenuOpen, onToggleMobileMenu }) {
   const { currentUser, openOtpModal, sendOtp } = useAuth();
@@ -41,20 +42,14 @@ export default function Header({ onOpenSearch, onNavigate, onOpenAuth, isMobileM
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.15 }}
             onClick={() => onNavigate('feed')}
-            className="flex items-center gap-2.5 sm:gap-3 cursor-pointer group"
+            className="cursor-pointer"
           >
-            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-indigo-600 flex items-center justify-center shadow-md shadow-indigo-500/20 group-hover:bg-indigo-700 transition-all shrink-0">
-              <span className="text-white font-extrabold text-base sm:text-lg tracking-wider font-mono">T</span>
-              <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 -ml-0.5 -mt-2 animate-pulse"></div>
-            </div>
-            <div className="flex flex-col">
-              <span className="font-sans font-bold text-lg sm:text-xl tracking-tight text-slate-900 group-hover:text-indigo-600 transition-colors">
-                ThreadPoint
-              </span>
-              <span className="text-[10px] font-sans font-medium text-slate-400 -mt-0.5 hidden sm:block">
-                Developer Knowledge Platform
-              </span>
-            </div>
+            <Logo
+              size={36}
+              withText
+              subtitle="Developer Knowledge Platform"
+              subtitleClassName="hidden sm:block"
+            />
           </motion.div>
         </div>
 
@@ -69,7 +64,7 @@ export default function Header({ onOpenSearch, onNavigate, onOpenAuth, isMobileM
               Search questions, code snippets, tags, users...
             </span>
             <kbd className="shrink-0 font-mono text-[11px] font-semibold px-2 py-0.5 rounded-md bg-white text-slate-500 shadow-xs border border-slate-200">
-              ⌘K
+              {typeof navigator !== 'undefined' && /(Mac|iPhone|iPod|iPad)/i.test(navigator?.userAgent || navigator?.platform || '') ? '⌘K' : 'Ctrl K'}
             </kbd>
           </div>
         </div>

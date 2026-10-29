@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <title>ThreadPoint circular logo</title>
+  <desc>Blue circular badge with a white stylized T and speech bubble containing three blue dots. The outside background is transparent.</desc>
+  <defs>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3158F5"/>
+      <stop offset="100%" stop-color="#1747E8"/>
+    </linearGradient>
+  </defs>
+  <!-- The area outside the circle is transparent. -->
+  <circle cx="512" cy="512" r="462" fill="url(#blue)"/>
+  <!-- Stylized T -->
+  <path d="M292 306
+           Q292 276 324 276
+           H694
+           Q720 276 701 296
+           L648 350
+           Q632 366 610 366
+           H563
+           Q520 366 520 410
+           V735
+           Q520 764 492 764
+           Q420 764 420 692
+           V392
+           H324
+           Q292 392 292 360 Z"
+        fill="#FFFFFF"/>
+  <!-- Speech bubble -->
+  <path d="M588 414
+           Q588 384 619 384
+           H744
+           Q790 384 790 430
+           V506
+           Q790 552 744 552
+           H650
+           L617 586
+           V552
+           Q588 546 588 514 Z"
+        fill="#FFFFFF"/>
+  <!-- Three message dots -->
+  <circle cx="646" cy="468" r="19" fill="#2450EF"/>
+  <circle cx="690" cy="468" r="19" fill="#2450EF"/>
+  <circle cx="734" cy="468" r="19" fill="#2450EF"/>
+</svg>

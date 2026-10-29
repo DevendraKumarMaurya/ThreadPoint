@@ -39,10 +39,7 @@ export default function CommandPalette({ isOpen, onClose, onNavigate }) {
 
   useEffect(() => {
     function handleKeyDown(e) {
-      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
-        e.preventDefault();
-        if (isOpen) onClose();
-      } else if (e.key === 'Escape' && isOpen) {
+      if (e.key === 'Escape' && isOpen) {
         onClose();
       }
     }
@@ -53,7 +50,13 @@ export default function CommandPalette({ isOpen, onClose, onNavigate }) {
   useEffect(() => {
     if (isOpen) {
       setHistory(getStoredHistory());
-      setTimeout(() => inputRef.current?.focus(), 60);
+      const focusTimer = setTimeout(() => {
+        if (inputRef.current) {
+          inputRef.current.focus();
+          inputRef.current.select();
+        }
+      }, 50);
+      return () => clearTimeout(focusTimer);
     } else {
       setQuery('');
       setResults([]);
@@ -140,6 +143,7 @@ export default function CommandPalette({ isOpen, onClose, onNavigate }) {
               <Search className="w-5 h-5 text-indigo-600 shrink-0" />
               <input
                 ref={inputRef}
+                autoFocus
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
